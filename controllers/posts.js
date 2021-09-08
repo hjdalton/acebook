@@ -29,9 +29,21 @@ var PostsController = {
       res.status(201).redirect('/posts');
     });
   },
+
+  Like: function(req, res) {
+    console.log(req.body.id)
+    Post.findByIdAndUpdate({ _id: req.body.id },{$inc:{ likes: 1 }},function(err) {
+        if (err) { throw err;} 
+
+        res.status(201).redirect('/posts');
+      }); 
+  },
+
   Comment: function(req, res) {
     res.render('posts/comments', {});
-  },
+  }
+
 };
+
 
 module.exports = PostsController;
