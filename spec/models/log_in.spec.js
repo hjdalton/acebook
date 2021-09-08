@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 require('../mongodb_helper')
+//require passport package
 var User = require('../../models/users');
 
 describe('Log in', function () {
@@ -20,7 +21,7 @@ describe('Log in', function () {
 
   it('accepts a users credentials', function() {
     // compare email and pword entered by the user, throw error if incorrect
-    User.find( {username: user.username} )
+    User.find( { username: 'jimmyboi', password: '1234' } )
   });
 
 
