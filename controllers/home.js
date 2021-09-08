@@ -14,9 +14,13 @@ var HomeController = {
     });
   },
 
+  Signin: function(req, res) {
+    res.render('home/login', { title: 'Acebook' });
+  },
+
   Login: function(req, res) {
     var authenticate = User.authenticate();
-    authenticate(req.body.username, req.body.password, function(err) {
+    authenticate( {username: req.body.username , password: req.body.password}, function(err, result) {
       if (err) { throw err; }
   
       res.status(201).redirect('/posts');
