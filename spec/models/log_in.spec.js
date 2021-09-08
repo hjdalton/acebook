@@ -5,13 +5,26 @@ var User = require('../../models/users');
 
 describe('Log in', function () {
   beforeEach(function(done) {
-    mongoose.connection.collections.comments.drop(function() {
-        done();
+    mongoose.connection.collections.users.drop(function() {
+    });
+
+   var user = new User({  firstname: 'Jim', lastname: 'Smith', username: 'jimmyboi', email: 'email@test.com', password: '1234' }); 
+
+   user.save(function(err) {
+    expect(err).toBeNull();
+
+    done();
     });
   });
 
 
-  it('does something', function() {
+  it('accepts a users credentials', function() {
+    // compare email and pword entered by the user, throw error if incorrect
+    User.find( {username: user.username} )
+  });
+
+
+  it('throws an error for incorrect user credentials', function() {
 
   });
 });
