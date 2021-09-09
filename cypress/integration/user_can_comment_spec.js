@@ -8,6 +8,6 @@ describe('Comments', function() {
     cy.get('#new-comment-form').submit();
 
     // This test should be refactored to test for the comment by id instead of possibly allowing coincidences to past the test
-    cy.get('.posts/comments/all').should('contain', 'Comment1');
+    cy.get('.comments').should('contain', 'Comment1');
   });
 });

@@ -13,7 +13,17 @@ var CommentController = {
 
       res.status(201).redirect('/posts/comments/all');
     });
-  }
+  },
+
+  Remove: function(req, res) {
+    console.log(req.body.id)
+
+    Comment.findByIdAndRemove({ _id: req.body.id }, function(err) {
+      if (err) { throw err; }
+
+    res.status(201).redirect('/posts/comments/all');  
+  });
+}
 };
 
 module.exports = CommentController;
