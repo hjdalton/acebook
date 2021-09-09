@@ -7,12 +7,12 @@ describe('Log in', function () {
     mongoose.connection.collections.users.drop(function() {
     });
 
-   var user = new User({  firstname: 'Jim', lastname: 'Smith', username: 'jimmyboi', email: 'email@test.com', password: '1234' }); 
+    var user = new User({  firstname: 'Jim', lastname: 'Smith', username: 'jimmyboi', email: 'email@test.com', password: '1234' }); 
 
-   user.save(function(err) {
-    expect(err).toBeNull();
+    user.save(function(err) {
+      expect(err).toBeNull();
 
-    done();
+      done();
     });
   });
 
