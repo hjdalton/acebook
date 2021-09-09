@@ -22,7 +22,7 @@ describe('Timeline', function() {
     cy.get('.posts').should('contain', randomText1);
     cy.get('.posts').should('contain', randomText2);
   
-   cy.contains(randomText1).submit();
-   cy.get('.posts').should('not contain', randomText1); 
+    cy.get('.posts').find(`[id = "${randomText1}"]`).find('[id = "forms"]').find('[id = "delete-post-form"]').submit();
+    cy.get(`[id = "${randomText1}"]`).should('not.exist'); 
   });
 });
