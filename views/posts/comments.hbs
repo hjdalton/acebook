@@ -27,7 +27,7 @@
     <div class="comment-text">
       {{this.comment}}
 
-    <form name="delete-comment-form" id="{{this.comment}}" action="/posts/comments/delete" method="post">
+    <form class="delete-comment-form" name="delete-comment-form" id="{{this.comment}}" action="/posts/comments/delete" method="post">
     <input id="id" type="hidden" name="id" value="{{this._id}}">
      <input type="submit" id= this._id value="Delete">
      </form>
@@ -131,6 +131,9 @@ a {
 	background: rgb(218, 218, 218);
 }
 
+.delete-comment-form {
+	margin-top: 10px;
+}
 </style>
 </body>
 </html>
