@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
-
 require('../mongodb_helper')
-//require passport package
 var User = require('../../models/users');
 
 describe('Log in', function () {
@@ -29,7 +27,19 @@ describe('Log in', function () {
   });
 
 
-  it('throws an error for incorrect user credentials', function() {
+  it('throws an error for incorrect username credentials', function(done) {
+    User.exists({ username: "jimmyboy", password:"1234"}, function(err, result) {
+      console.log(result)
+      expect(result).toBe(false)
+      done();
+    });
+  });
 
+  it('throws an error for incorrect password credentials', function(done) {
+    User.exists({ username: "jimmyboi", password:"1333"}, function(err, result) {
+      console.log(result)
+      expect(result).toBe(false)
+      done();
+    });
   });
 });
