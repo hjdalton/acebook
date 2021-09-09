@@ -16,7 +16,9 @@ var HomeController = {
           if (result=== false) {
             user.save(function(err) {
               if (err) { throw err; }
-        
+              session=req.session;
+              session.userid=req.body.username;
+              console.log(req.session);
               res.status(201).redirect('/posts');
             });  
           } else {
