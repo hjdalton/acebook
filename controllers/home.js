@@ -1,4 +1,5 @@
 var User = require('../models/users');
+var session;
 
 var HomeController = {
   Index: function(req, res) {
@@ -34,9 +35,21 @@ var HomeController = {
       if (err) {
         res.send(err);
       } else {
-        (result === true ? res.status(201).redirect('/posts'):res.status(201).redirect('/login')) ;
+          if (result=== true) {
+            session=req.session;
+            session.userid=req.body.username;
+            console.log(req.session);
+            res.status(201).redirect('/posts');
+          } else {
+            res.status(201).redirect('/login');
+          }
       }
     });
+  },
+
+  Logout: function(req, res) {
+    req.session.destroy();
+    res.redirect('/');
   }
 };
 

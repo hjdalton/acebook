@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var sessions = require('express-session')
 
 
 var homeRouter = require('./routes/home');
@@ -11,6 +11,17 @@ var postsRouter = require('./routes/posts');
 var commentsRouter = require('./routes/comment')
 
 var app = express();
+
+// creating 24 hours from milliseconds
+const oneDay = 1000 * 60 * 60 * 24;
+
+//session middleware
+app.use(sessions({
+    secret: "secret",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

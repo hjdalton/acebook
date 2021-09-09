@@ -1,12 +1,21 @@
 var Post = require('../models/post');
+var session;
 
 var PostsController = {
   Index: function(req, res) {
-    Post.find({}, function(err, posts) {
-      if (err) { throw err; }
+    session = req.session
 
-      res.render('posts/index', { posts: posts });
-    }).sort({ 'created_on': -1 });
+    if(session.userid){
+      Post.find({}, function(err, posts) {
+        if (err) { throw err; }
+
+        res.render('posts/index', { posts: posts });
+      }).sort({ 'created_on': -1 });
+    }else {
+      res.render('error.hbs')
+    }
+      
+
   },
   New: function(req, res) {
     res.render('posts/new', {});
