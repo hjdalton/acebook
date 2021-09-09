@@ -26,7 +26,13 @@
     {{#each comments}}
     <div class="comment-text">
       {{this.comment}}
+
+    <form id="delete-comment-form" action="/posts/comments/delete" method="post">
+     <input type="submit" value="Delete">
+     </form>
     </div>
+
+    
     {{/each}}
   </ul>
 </div>

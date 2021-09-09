@@ -16,6 +16,10 @@ var CommentController = {
 
       res.status(201).redirect('/posts/comments/all');
     });
+  },
+
+  Remove: function(req, res) {
+    res.status(201).redirect('/posts/comments/all');
   }
 };
 
