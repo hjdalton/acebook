@@ -20,7 +20,7 @@ var HomeController = {
 
   Login: function(req, res) {
     var authenticate = User.authenticate();
-    authenticate( {username: req.body.username , password: req.body.password}, function(err, result) {
+    authenticate( {username: req.body.username , password: req.body.password}, function(err) {
       if (err) { throw err; }
   
       res.status(201).redirect('/posts');
