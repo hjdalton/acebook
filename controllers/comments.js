@@ -19,8 +19,14 @@ var CommentController = {
   },
 
   Remove: function(req, res) {
-    res.status(201).redirect('/posts/comments/all');
-  }
+    console.log(req.body.id)
+
+    Comment.findByIdAndRemove({ _id: req.body.id }, function(err) {
+      if (err) { throw err; }
+
+    res.status(201).redirect('/posts/comments/all');  
+  });
+}
 };
 
 module.exports = CommentController;

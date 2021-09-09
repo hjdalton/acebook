@@ -3,12 +3,12 @@ describe('Comments', function() {
     cy.visit('/posts');
     cy.contains('Comment').click();
 
-    cy.get('#new-comment-form').find('[id="comment"]').type('Comment1');
+    cy.get('#new-comment-form').find('[id="comment"]').type('Comment7');
     cy.get('#new-comment-form').submit();
 
-    cy.contains('Delete').click()
+    cy.get("#delete-comment-form").submit();
 
-    cy.get('.comments').should('not contain', 'Comment1')
+    cy.get('.comments').should('contain', 'Comment7')
   });
 });
     
