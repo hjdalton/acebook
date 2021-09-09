@@ -5,5 +5,7 @@ var HomeController = require('../controllers/home');
 
 router.get('/', HomeController.Index);
 router.post('/', HomeController.New);
+router.get('/login', HomeController.Signin);
+router.post('/login', HomeController.Login);
 
 module.exports = router;

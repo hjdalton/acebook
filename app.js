@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
 var homeRouter = require('./routes/home');
 var postsRouter = require('./routes/posts');
 var commentsRouter = require('./routes/comment')
@@ -30,6 +31,7 @@ app.use('/posts/comments', commentsRouter)
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res) {
