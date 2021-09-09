@@ -19,9 +19,13 @@ describe('Log in', function () {
   });
 
 
-  it('accepts a users credentials', function() {
-    // compare email and pword entered by the user, throw error if incorrect
-    User.find( { username: 'jimmyboi', password: '1234' } )
+  it('accepts a users credentials', function(done) {
+    User.exists({ username: "jimmyboi", password:"1234"}, function(err, result) {
+      console.log(result)
+      expect(result).toBe(true)
+      done();
+    });
+    
   });
 
 
