@@ -9,34 +9,31 @@
     
   </head>
   <body style="text-align: center;">
-    <h1 class="header">Timeline</h1>  
-      <ul class="posts" >
-        {{#each posts}}
-        <div class="post">
-          <div class="post-header">
-            <p><b> {{this.message}} </b></p>
-          </div>
-
+      <h1>Timeline</h1>  
+        <ul class="posts" >
+          {{#each posts}}
+          <div id= "{{this.message}}">
+            <p ><b> {{this.message}} </b></p>
             <p> Likes: {{this.likes}} </p>
+            <div id ="forms">
+              <form name="delete-post-form" id="delete-post-form" action="/posts/delete" method="post">
+                <input id="id" type="hidden" name="id" value="{{this._id}}">
+                <input type="submit" id= this._id value="Delete">
+              </form>
 
-          <div>
-            <form class="button" name="delete-post-form" id="{{this.message}}" action="/posts/delete" method="post">
-              <input id="id" type="hidden" name="id" value="{{this._id}}">
-              <input type="submit" id= this._id value="Delete">
-            </form>
-        
-            <form class="button" name="like-post-form" id="{{this.message}}" action="/posts/like" method="post">
-              <input id="id" type="hidden" name="id" value="{{this._id}}">
-              <input type="submit" id= this._id value="Like">
-            </form> 
-            
-            <form class="button" id="{{this.message}}" action="/posts/comments" method="get">
-              <input id="comment-button" type="submit" name="comment-button" value="Comment">
-            </form>
-          </div> 
-        </div>
-        {{/each}}
-      </ul>
+              <form name="like-post-form" id="like-post-form" action="/posts/like" method="post">
+                <input id="id" type="hidden" name="id" value="{{this._id}}">
+                <input type="submit" id= this._id value="Like">
+              </form> 
+
+              <form name="comment-post-form" id="comment-post-form" action="/posts/comments" method="get">
+                <input id="comment-button" type="submit" name="comment-button" value="Comment">
+              </form>
+
+            </div> 
+          </div>
+          {{/each}}
+        </ul>
 
       <style type="text/css">
         .header {
