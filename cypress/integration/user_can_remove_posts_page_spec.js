@@ -6,6 +6,13 @@ var faker = require('faker');
 
 describe('Timeline', function() {
   it('can remove posts and see the changes', function() {
+    cy.visit('/login');
+        
+    cy.get('#login-form').find('[id="username"]').type('jimmyboi');
+    cy.get('#login-form').find('[id="password"]').type('1234');
+        
+    cy.get('#login-form').submit();
+    
     let randomText1 = faker.lorem.words()
     let randomText2 = faker.lorem.words()
 

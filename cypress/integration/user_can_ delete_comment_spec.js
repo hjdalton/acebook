@@ -2,6 +2,13 @@ var faker = require('faker');
 
 describe('Comments', function() {
   it('can remove a comment', function() {
+    cy.visit('/login');
+        
+    cy.get('#login-form').find('[id="username"]').type('jimmyboi');
+    cy.get('#login-form').find('[id="password"]').type('1234');
+        
+    cy.get('#login-form').submit();
+    
     let randomText3 = faker.lorem.words()
 
     cy.visit('/posts');
