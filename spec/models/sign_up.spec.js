@@ -25,25 +25,16 @@ describe('Sign up', function() {
       });
   });
 
-  it('doesnt save 2 users with the same username', function(done) {
+  // it('doesnt save 2 users with the same username', function(done) {
     
-    var user2 = new User({  firstname: 'Leslie', lastname: 'Smith', username: 'jimmyboi', email: 'email@test.com', password: '1234' });
+  //   var user2 = new User({  firstname: 'Leslie', lastname: 'Smith', username: 'jimmyboi', email: 'email@test.com', password: '1234' });
 
-    user2.save(function(err) {
-      console.log(err)
-      expect(err).toBe()
-      done();
-
-      // User.find(function(err, user2) {
-      //   expect(err).toBeNull();
-      //   done();
-      // });
-    });
-  });
-
-
-
-  
+  //   user2.save(function(err) {
+  //     console.log(err)
+  //     expect(err).toBe()
+  //     done();
+  //   });
+  // });
 });
 
 //want to throw an error if log in credentials are already taken
