@@ -8,33 +8,29 @@
   <title>Sign up</title>
 </head>
 <body>
-  <nav class="navbar" style="text-align: right;">
-  <a class="navbarlink" href="/login">Sign In</a>
+<nav class="navbar" style="text-align: right;">
+  <div><a class="navbarlink" href="/login">Sign In</a></div>
 </nav>
 <div class="header">
-  <h1 class="title">{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+  <h1 class="title" style="font-size: 3.5em; text-shadow: 3px 3px #e0e0e0; color: #43D1AF;">{{title}}</h1>
+    <p style="font-size: 1.5em;">Welcome to {{title}}</p>
 </div>
 <div class="sign-up-form-styles">
   <h1>Sign up!</h1>
   <form id="sign-up-form" action="/" method="post">
-    <label for="username">Username</label>
+    <label for="username"></label>
     	<input id="username" type="text" name="username" placeholder="Username"> <br>
-	<label for="firstname">First name</label>
+	<label for="firstname"></label>
     	<input id="firstname" type="text" name="firstname" placeholder="First Name"> <br>
-	<label for="lastname">Last name</label>
+	<label for="lastname"></label>
     <input id="lastname" type="text" name="lastname" placeholder="Last Name"> <br>
-    <label for="email">Email</label>
+    <label for="email"></label>
     <input id="email" type="email" name="email" placeholder="Email"> <br>
-    <label for="password">Password</label>
+    <label for="password"></label>
     <input id="password" type="password" name="password" placeholder="Password"> <br>
     <input type="submit" value="Submit">
   </form>
 </div>
-
-
-
-
 
 
 <style type="text/css">
@@ -104,6 +100,20 @@
 
 .header {
   text-align: center;
+}
+
+.navbar > div {
+	display: inline;
+	background: rgb(243, 243, 243);
+	padding: 5px 15px 5px 15px;
+}
+a {
+	text-decoration: none;
+	color: #2EBC99;
+}
+
+.navbar > div:hover {
+	background: rgb(218, 218, 218);
 }
 </style>
   

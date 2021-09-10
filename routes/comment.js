@@ -5,5 +5,6 @@ var CommentController = require('../controllers/comments')
 
 router.post('/', CommentController.New);
 router.get('/all', CommentController.Index);
+router.post('/delete', CommentController.Remove);
 
 module.exports = router;

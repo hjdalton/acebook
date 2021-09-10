@@ -6,15 +6,92 @@
     <a class="profile" href="#">Profile</a>
      <a class="logout" href="/logout">Log Out</a>
 </nav>
-  <h1>New Post</h1>
+  
   </head>
 
 <body>
-<form id="new-post-form" action="/posts" method="post">
-  <label for="message">Message: </label>
+<form class="new-post-form-styles" id="new-post-form" action="/posts" method="post">
+  <h1>New Post</h1>
+  <label for="message"></label>
   <input id="message" type="text" name="message" value="">
   <input type="submit" value="Submit">
 </form>
 
+<style type="text/css">
+.new-post-form-styles{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: #F7F7F7;
+}
+.new-post-form-styles h1{
+	background: #43D1AF;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.new-post-form-styles input[type="text"]
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.new-post-form-styles input[type="text"]:focus
+{
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+}
+
+.new-post-form-styles input[type="submit"] {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #43D1AF;
+	border-bottom: 2px solid #30C29E;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+}
+.new-post-form-styles input[type="submit"]:hover {
+	background: #2EBC99;
+}
+
+.header {
+  text-align: center;
+}
+  .navbar > div {
+    display: inline;
+    background: rgb(243, 243, 243);
+    padding: 5px 15px 5px 15px;
+  }
+  a {
+    text-decoration: none;
+    color: #2EBC99;
+  }
+
+  .navbar > div:hover {
+    background: rgb(218, 218, 218);
+  }
+</style>
 </body>
 </html>
