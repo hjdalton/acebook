@@ -22,7 +22,7 @@ var HomeController = {
               res.status(201).redirect('/posts');
             });  
           } else {
-              res.status(201).redirect('/')
+            res.render('home/index_error.hbs');
           }
       }
     });
@@ -43,7 +43,7 @@ var HomeController = {
             console.log(req.session);
             res.status(201).redirect('/posts');
           } else {
-            res.status(201).redirect('/login');
+            res.render('home/login_error.hbs');
           }
       }
     });

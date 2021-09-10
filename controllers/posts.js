@@ -12,7 +12,7 @@ var PostsController = {
         res.render('posts/index', { posts: posts });
       }).sort({ 'created_on': -1 });
     }else {
-      res.render('error.hbs')
+      res.render('home/login_error.hbs')
     }
       
 
