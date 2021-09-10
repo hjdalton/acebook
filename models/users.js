@@ -1,16 +1,35 @@
 var mongoose = require('mongoose');
-var passportLocalMongoose = require('passport-local-mongoose');
-
+// var uniqueValidator = require('mongoose-unique-validator');
 
 var UserSchema = new mongoose.Schema({
-  firstname: String,
-  lastname: String,
-  username: String,
-  email: String,
-  password: String
+  firstname: {
+    type: String,
+    required: true,
+    unique: false 
+  },
+  lastname: {
+    type: String,
+    required: true,
+    unique: false 
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true 
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: false 
+  },
+  password: {
+    type: String,
+    required: true,
+    unique: false 
+  }
 });
 
-UserSchema.plugin(passportLocalMongoose);
+// UserSchema.plugin(uniqueValidator);
 
 
 var User = mongoose.model('User', UserSchema);

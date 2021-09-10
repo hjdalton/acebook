@@ -1,4 +1,5 @@
 var User = require('../models/users');
+var session;
 
 var HomeController = {
   Index: function(req, res) {
@@ -7,10 +8,23 @@ var HomeController = {
 
   New: function(req, res) {
     var user = new User( { firstname: req.body.firstname, lastname: req.body.lastname, username: req.body.username, email: req.body.email, password: req.body.password});
-    user.save(function(err) {
-      if (err) { throw err; }
-
-      res.status(201).redirect('/posts');
+      
+    User.exists({ username: req.body.username }, function(err, result) {
+      if (err) {
+        res.send(err);
+      } else {
+          if (result=== false) {
+            user.save(function(err) {
+              if (err) { throw err; }
+              session=req.session;
+              session.userid=req.body.username;
+              console.log(req.session);
+              res.status(201).redirect('/posts');
+            });  
+          } else {
+              res.status(201).redirect('/')
+          }
+      }
     });
   },
 
@@ -19,12 +33,25 @@ var HomeController = {
   },
 
   Login: function(req, res) {
-    var authenticate = User.authenticate();
-    authenticate( {username: req.body.username , password: req.body.password}, function(err) {
-      if (err) { throw err; }
-  
-      res.status(201).redirect('/posts');
+    User.exists({ username: req.body.username, password: req.body.password }, function(err, result) {
+      if (err) {
+        res.send(err);
+      } else {
+          if (result=== true) {
+            session=req.session;
+            session.userid=req.body.username;
+            console.log(req.session);
+            res.status(201).redirect('/posts');
+          } else {
+            res.status(201).redirect('/login');
+          }
+      }
     });
+  },
+
+  Logout: function(req, res) {
+    req.session.destroy();
+    res.redirect('/');
   }
 };
 
