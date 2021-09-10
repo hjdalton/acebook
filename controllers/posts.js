@@ -18,15 +18,25 @@ var PostsController = {
 
   },
   New: function(req, res) {
-    res.render('posts/new', {});
+    session = req.session
+
+    if(session.userid){
+      res.render('posts/new');
+      }else {
+      res.render('home/login_error.hbs')
+    } 
   },
   Create: function(req, res) {
-    var post = new Post(req.body);
-    post.save(function(err) {
-      if (err) { throw err; }
+    if(session.userid){
+      var post = new Post(req.body);
+      post.save(function(err) {
+        if (err) { throw err; }
 
-      res.status(201).redirect('/posts');
-    });
+        res.status(201).redirect('/posts');
+      });
+    }else {
+      res.render('home/login_error.hbs')
+    }   
   },
   
   Remove: function(req, res) {
@@ -49,9 +59,14 @@ var PostsController = {
   },
 
   Comment: function(req, res) {
-    res.render('posts/comments', {});
-  }
+    session = req.session
 
+    if(session.userid){
+      res.render('posts/comments');
+    } else {
+      res.render('home/login_error.hbs')
+    } 
+  }
 };
 
 
